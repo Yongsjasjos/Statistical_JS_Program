@@ -48,19 +48,19 @@
     <script src="JS/script.js"></script>
     <script>
         document.getElementById("meanButton").addEventListener("click", () => {
-            import('../JS/mean.js').then(module => {
+            import('./JS/mean.js').then(module => {
                 module.calculateMean(window.randomNumbers);
             });
         });
 
         document.getElementById("medianButton").addEventListener("click", () => {
-            import('JS/median.js').then(module => {
+            import('./JS/median.js').then(module => {
                 module.calculateMedian(window.randomNumbers);
             });
         });
 
         document.getElementById("modusButton").addEventListener("click", () => {
-            import('JS/modus.js').then(module => {
+            import('./JS/modus.js').then(module => {
                 module.calculateModus(window.frequencyTable);
             });
         });
@@ -71,7 +71,7 @@
                 alert("Kuartil harus antara 1 hingga 3!");
                 return;
             }
-            import('JS/quartil.js').then(module => {
+            import('./JS/quartil.js').then(module => {
                 module.calculateQuartil(window.randomNumbers, parseInt(quartil));
             });
         });
@@ -82,7 +82,7 @@
                 alert("Desil harus antara 1 hingga 9!");
                 return;
             }
-            import('JS/desil.js').then(module => {
+            import('./JS/desil.js').then(module => {
                 module.calculateDesil(window.randomNumbers, parseInt(desil));
             });
         });
@@ -93,22 +93,22 @@
                 alert("Persentil harus antara 1 hingga 99!");
                 return;
             }
-            import('JS/persentil.js').then(module => {
+            import('./JS/persentil.js').then(module => {
                 module.calculatePersentil(window.randomNumbers, parseInt(persentil));
             });
         });
         document.getElementById("rak&rsakButton").addEventListener("click", () => {
-            import('JS/rak&rsak.js').then(module => {
+            import('./JS/rak&rsak.js').then(module => {
                 module.calculateIQR(window.randomNumbers);
             });
         });
         document.getElementById("simratButton").addEventListener("click", () => {
-    import('JS/simpatr.js').then(module => {
+    import('./JS/simpatr.js').then(module => {
         module.calculateSimrat(window.randomNumbers);
     });
 });
         document.getElementById("varButton").addEventListener("click", () => {
-    import('JS/varsb.js').then(module => {
+    import('./JS/varsb.js').then(module => {
         module.calculateVarianceAndStdDev(window.randomNumbers);
     });
 });
