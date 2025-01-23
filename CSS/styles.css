@@ -1,0 +1,248 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    background-color: #162447; /* Biru muda */
+}
+
+/* Heading utama */
+h1 {
+    color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+/* Heading utama */
+h1 {
+    color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+/* Loading Screen Styles */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #162447; /* Dark Navy */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.logo-container {
+    animation: fadeIn 2s ease-in-out infinite;
+}
+
+.logo {
+    width: 280px;
+}
+.logo-loading {
+    width: 280px;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Main Content Styles */
+#content {
+    display: none;
+    padding: 20px;
+}
+
+/* Default Container Styles */
+.container {
+    max-width: 600px; /* Ukuran default untuk perangkat kecil */
+    margin: 20px auto;
+    padding: 10px;
+}
+
+/* Media Query untuk layar lebar (PC) */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1500px; /* Perlebar untuk layar PC */
+        padding: 20px; /* Tambahkan padding untuk proporsi */
+    }
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    align-items: center;
+    background-color: #001f3f; /* Biru navy */
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.logo {
+    background-color: #007bff; /* Biru muda */
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    padding: 10px;
+    margin-right: 15px;
+    border-radius: 8px;
+    text-align: center;
+    min-width: 50px;
+}
+
+.title p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    text-align: left;
+}
+
+.search-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-form {
+  display: flex;
+  background-color: #fff;
+  border-radius: 25px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.search-input {
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  outline: none;
+  flex: 1;
+  border-radius: 25px 0 0 25px;
+}
+
+.search-button {
+  background-color: #007bff; /* Light blue */
+  border: none;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: #007bff
+}
+
+.search-button svg {
+  fill: #fff;
+}
+
+/* List Styles */
+.list {
+    margin-top: 20px;
+}
+
+.item {
+    background-color: #007bff; /* Biru muda */
+    color: white;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.item:hover {
+    background-color: #0056b3; /* Lebih gelap saat hover */
+}
+
+.item a {
+  text-align: left;
+  display: block;
+  text-decoration: none;
+  color: white;
+}
+
+.deskripsi {
+  text-align: left;
+}
+
+.footer {
+  color: white;
+  text-align: center;
+}
+
+/*pagination*/
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.pagination-button {
+  background-color: white;
+  border: 1px solid #d1d1d1;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  color: #007bff;
+  font-size: 14px;
+}
+
+.pagination-button.disabled {
+  color: #c1c1c1;
+  cursor: not-allowed;
+}
+
+.pagination-button:hover:not(.disabled) {
+  background-color: #f1f1f1;
+}
+
+.pagination-numbers {
+  display: flex;
+  gap: 5px;
+}
+
+.pagination-numbers button {
+  background-color: white;
+  border: 1px solid #d1d1d1;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  color: #007bff;
+  font-size: 14px;
+}
+
+.pagination-numbers button.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.pagination-numbers button:hover:not(.active) {
+  background-color: #f1f1f1;
+}
+
+.pagination-info {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
