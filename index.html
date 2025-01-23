@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id" translate="no">
+<head>
+    <meta name="google" content="notranslate">
+    <title>Program Statistik</title>
+    <link rel="stylesheet" href="CSS/statistika.css">
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Program Statistika</h1>
+        <label for="count" class="hidden">Jumlah angka random:</label>
+        <input type="number" id="count" placeholder="Jumlah angka random" min="1">
+        <p id="countError" class="error-message"></p>
+        
+        <label for="minVal" class="hidden">Nilai minimum:</label>
+        <input type="number" id="minVal" placeholder="Nilai minimum">
+        <p id="minValError" class="error-message"></p>
+        
+        <label for="maxVal" class="hidden">Nilai maksimum:</label>
+        <input type="number" id="maxVal" placeholder="Nilai maksimum">
+        <p id="maxValError" class="error-message"></p>
+        
+        <button id="generateButton">Buat</button>
+    </div>
+
+    <div id="outputSection" style="margin-top: 20px;">
+        <div id="randomNumbers"></div>
+        <div id="frequencyTable"></div>
+        <div id="statButtons" style="display: none;" class="stat-buttons">
+            <div class="btn-group">
+                <a href="#" class="btn btn-primary" id="meanButton">Mean</a>
+                <a href="#" class="btn btn-primary" id="medianButton">Median</a>
+                <a href="#" class="btn btn-primary" id="modusButton">Modus</a>
+                <a href="#" class="btn btn-primary" id="quartileButton">Kuartil</a>
+                <a href="#" class="btn btn-primary" id="desilButton">Desil</a>
+                <a href="#" class="btn btn-primary" id="percentileButton">Persentil</a>
+                <a href="#" class="btn btn-primary" id="rak&rsakButton">Rentang Antar Kuartil dan Rentang Semi Antar Kuartil</a>
+                <a href="#" class="btn btn-primary" id="simratButton">Simpangan Rata-rata</a>
+                <a href="#" class="btn btn-primary" id="varButton">Varians & Simpangan Baku</a>
+            </div>
+        </div>
+
+        <div id="statResults"></div>
+    </div>
+
+    <script src="JS/statistika.js"></script>
+    <script src="JS/script.js"></script>
+    <script>
+        document.getElementById("meanButton").addEventListener("click", () => {
+            import('../JS/mean.js').then(module => {
+                module.calculateMean(window.randomNumbers);
+            });
+        });
+
+        document.getElementById("medianButton").addEventListener("click", () => {
+            import('JS/median.js').then(module => {
+                module.calculateMedian(window.randomNumbers);
+            });
+        });
+
+        document.getElementById("modusButton").addEventListener("click", () => {
+            import('JS/modus.js').then(module => {
+                module.calculateModus(window.frequencyTable);
+            });
+        });
+
+        document.getElementById("quartileButton").addEventListener("click", () => {
+            const quartil = prompt("Masukkan kuartil yang ingin dihitung (1-3):");
+            if (isNaN(quartil) || quartil < 1 || quartil > 3) {
+                alert("Kuartil harus antara 1 hingga 3!");
+                return;
+            }
+            import('JS/quartil.js').then(module => {
+                module.calculateQuartil(window.randomNumbers, parseInt(quartil));
+            });
+        });
+
+        document.getElementById("desilButton").addEventListener("click", () => {
+            const desil = prompt("Masukkan nilai desil yang ingin dihitung (1-9):");
+            if (isNaN(desil) || desil < 1 || desil > 9) {
+                alert("Desil harus antara 1 hingga 9!");
+                return;
+            }
+            import('JS/desil.js').then(module => {
+                module.calculateDesil(window.randomNumbers, parseInt(desil));
+            });
+        });
+
+        document.getElementById("percentileButton").addEventListener("click", () => {
+            const persentil = prompt("Masukkan nilai persentil yang ingin dihitung (1-99):");
+            if (isNaN(persentil) || persentil < 1 || persentil > 99) {
+                alert("Persentil harus antara 1 hingga 99!");
+                return;
+            }
+            import('JS/persentil.js').then(module => {
+                module.calculatePersentil(window.randomNumbers, parseInt(persentil));
+            });
+        });
+        document.getElementById("rak&rsakButton").addEventListener("click", () => {
+            import('JS/rak&rsak.js').then(module => {
+                module.calculateIQR(window.randomNumbers);
+            });
+        });
+        document.getElementById("simratButton").addEventListener("click", () => {
+    import('JS/simpatr.js').then(module => {
+        module.calculateSimrat(window.randomNumbers);
+    });
+});
+        document.getElementById("varButton").addEventListener("click", () => {
+    import('JS/varsb.js').then(module => {
+        module.calculateVarianceAndStdDev(window.randomNumbers);
+    });
+});
+    </script>
+</body>
+</html>
